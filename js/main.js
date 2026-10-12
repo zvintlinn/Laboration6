@@ -63,7 +63,19 @@ async function getRecipe() {
 }
 
 //Skriver ut recept till DOM
-function displayRecipe(data) {}
+function displayRecipe(data) {
+  //Lägger till en article som kommer innehålla receptet
+  const sectionEl = document.querySelector("#recipe");
+  const articleEl = document.createElement("article");
+  sectionEl.appendChild(articleEl);
+
+  //Lägger till h3 med titel
+  const titleEl = document.createElement("h3");
+  titleEl.textContent = `${data.recipes[0].name}`;
+  articleEl.appendChild(titleEl);
+
+  //Lägger till bild
+}
 
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
