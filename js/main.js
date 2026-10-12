@@ -33,11 +33,21 @@ function writeError() {
 //Hämtar recept från API
 async function getRecipe() {
   try {
+    //Hämtar data med fetch
     const response = await fetch(
       `https://dummyjson.com/recipes/search?q=${searchField.value.trim()}`,
     );
+
+    //Konverterar json till javascript
     const data = await response.json();
     console.log(data);
+
+    //Errormeddelande om response blir något annat än 200 ok
+    if (!response.ok) {
+      throw new Error("Något gick fel, försök igen senare.");
+    }
+
+    //Errormeddelande om recept inte finns
     if (data.recipes.length === 0) {
       throw new Error("Recept finns ej");
     }
