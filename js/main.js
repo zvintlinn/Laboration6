@@ -34,6 +34,9 @@ function writeError() {
 //Hämtar recept från API
 async function getRecipe() {
   try {
+    const response = await fetch(
+      "https://dummyjson.com/recipes/search?q=SÖKFRAS",
+    );
   } catch (error) {}
 }
 
