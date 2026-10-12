@@ -32,7 +32,10 @@ function writeError() {
 }
 
 //Hämtar recept från API
-async function getRecipe() {}
+async function getRecipe() {
+  try {
+  } catch (error) {}
+}
 
 //Skriver ut recept till DOM
 function displayRecipe() {}
@@ -42,5 +45,6 @@ searchForm.addEventListener("submit", function (event) {
 
   if (validateSearch() === true) {
     console.log(2);
+    getRecipe();
   }
 });
