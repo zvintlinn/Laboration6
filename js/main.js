@@ -75,6 +75,10 @@ function displayRecipe(data) {
   articleEl.appendChild(titleEl);
 
   //Lägger till bild
+  const imageEl = document.createElement("img");
+  imageEl.src = data.recipes[0].image;
+  imageEl.alt = data.recipes[0].name;
+  articleEl.appendChild(imageEl);
 }
 
 searchForm.addEventListener("submit", function (event) {
