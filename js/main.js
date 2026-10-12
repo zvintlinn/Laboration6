@@ -9,7 +9,8 @@ const search = document.querySelector("#search");
 
 //Validerar inmatning till sökfältet
 function validateSearch() {
-  if ((search = "")) {
+  if (search.value.trim() === "") {
+    console.log("hej");
   }
 }
 
@@ -22,9 +23,9 @@ async function getRecipe() {}
 //Skriver ut recept till DOM
 function displayRecipe() {}
 
-searchButton.addEventListener("click", function (event) {
-  event.preventDefault;
+searchButton.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-  if (validateSearch === true) {
+  if (validateSearch() === true) {
   }
 });
