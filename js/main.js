@@ -13,7 +13,7 @@ function validateSearch() {}
 function writeError() {}
 
 //Hämtar recept från API
-function getRecipe() {}
+async function getRecipe() {}
 
 //Skriver ut recept till DOM
 function displayRecipe() {}
