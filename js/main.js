@@ -35,8 +35,9 @@ function writeError() {
 async function getRecipe() {
   try {
     const response = await fetch(
-      "https://dummyjson.com/recipes/search?q=SÖKFRAS",
+      `https://dummyjson.com/recipes/search?q=${searchField.value.trim()}`,
     );
+    console.log(response);
   } catch (error) {}
 }
 
