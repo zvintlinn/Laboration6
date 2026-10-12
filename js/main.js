@@ -14,7 +14,6 @@ const searchError = document.querySelector("#error");
 function validateSearch() {
   //Felmeddelande om fältet är tomt
   if (searchField.value.trim() === "") {
-    console.log(1);
     writeError();
   }
 
@@ -37,8 +36,14 @@ async function getRecipe() {
     const response = await fetch(
       `https://dummyjson.com/recipes/search?q=${searchField.value.trim()}`,
     );
-    console.log(response);
-  } catch (error) {}
+    const data = await response.json();
+    console.log(data);
+    if (data.recipes.length === 0) {
+      throw new Error("Recept finns ej");
+    }
+  } catch (error) {
+    searchError.innerHTML = `${error}`;
+  }
 }
 
 //Skriver ut recept till DOM
@@ -48,7 +53,6 @@ searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   if (validateSearch() === true) {
-    console.log(2);
     getRecipe();
   }
 });
