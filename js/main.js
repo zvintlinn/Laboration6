@@ -5,9 +5,13 @@
  */
 
 const searchButton = document.querySelector("#searchbutton");
+const search = document.querySelector("#search");
 
 //Validerar inmatning till sökfältet
-function validateSearch() {}
+function validateSearch() {
+  if ((search = "")) {
+  }
+}
 
 //Skriver ut felmeddelande till DOM
 function writeError() {}
@@ -18,4 +22,9 @@ async function getRecipe() {}
 //Skriver ut recept till DOM
 function displayRecipe() {}
 
-searchButton.addEventListener("click", validateSearch);
+searchButton.addEventListener("click", function (event) {
+  event.preventDefault;
+
+  if (validateSearch === true) {
+  }
+});
