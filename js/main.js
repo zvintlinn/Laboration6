@@ -5,12 +5,13 @@
  */
 
 const searchButton = document.querySelector("#searchbutton");
-const search = document.querySelector("#search");
+const searchField = document.querySelector("#search");
+const searchForm = document.querySelector("#searchform");
 
 //Validerar inmatning till sökfältet
 function validateSearch() {
-  if (search.value.trim() === "") {
-    console.log("hej");
+  if (searchField.value.trim() === "") {
+    console.log(1);
   }
 }
 
@@ -23,9 +24,8 @@ async function getRecipe() {}
 //Skriver ut recept till DOM
 function displayRecipe() {}
 
-searchButton.addEventListener("submit", function (event) {
+searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  if (validateSearch() === true) {
-  }
+  validateSearch();
 });
