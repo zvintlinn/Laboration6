@@ -10,6 +10,8 @@ const searchForm = document.querySelector("#searchform");
 
 const searchError = document.querySelector("#error");
 
+const recipe = document.querySelector("#recipe");
+
 //Validerar inmatning till sökfältet
 function validateSearch() {
   //Felmeddelande om fältet är tomt
@@ -49,15 +51,19 @@ async function getRecipe() {
 
     //Errormeddelande om recept inte finns
     if (data.recipes.length === 0) {
-      throw new Error("Recept finns ej");
+      throw new Error("Recept finns ej, prova igen.");
     }
+
+    displayRecipe(data);
+
+    //Fångar upp ev felmeddelanden
   } catch (error) {
     searchError.innerHTML = `${error}`;
   }
 }
 
 //Skriver ut recept till DOM
-function displayRecipe() {}
+function displayRecipe(data) {}
 
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
