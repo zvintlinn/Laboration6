@@ -10,8 +10,12 @@ const searchForm = document.querySelector("#searchform");
 
 //Validerar inmatning till sökfältet
 function validateSearch() {
+  //Felmeddelande om fältet är tomt
   if (searchField.value.trim() === "") {
     console.log(1);
+    writeError();
+  } else {
+    return true;
   }
 }
 
@@ -27,5 +31,7 @@ function displayRecipe() {}
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  validateSearch();
+  if (validateSearch() === true) {
+    console.log(2);
+  }
 });
