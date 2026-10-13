@@ -62,6 +62,12 @@ async function getRecipe() {
   }
 }
 
+//Raderar tidigare sökt recept
+function deleteRecipe() {
+  const sectionEl = document.querySelector("#recipe");
+  sectionEl.innerHTML = "";
+}
+
 //Skriver ut recept till DOM
 function displayRecipe(data) {
   //Lägger till en article som kommer innehålla receptet
@@ -163,6 +169,7 @@ searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   if (validateSearch() === true) {
+    deleteRecipe();
     getRecipe();
   }
 });
