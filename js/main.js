@@ -54,11 +54,14 @@ async function getRecipe() {
       throw new Error("Recept finns ej, prova igen.");
     }
 
+    const apiError = document.querySelector("#message");
+    apiError.innerHTML = "";
     displayRecipe(data);
 
     //Fångar upp ev felmeddelanden
   } catch (error) {
-    searchError.innerHTML = `${error}`;
+    const apiError = document.querySelector("#message");
+    apiError.innerHTML = `${error}`;
   }
 }
 
