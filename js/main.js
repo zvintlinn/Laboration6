@@ -69,16 +69,32 @@ function displayRecipe(data) {
   const articleEl = document.createElement("article");
   sectionEl.appendChild(articleEl);
 
-  //Lägger till h3 med titel
+  //TITEL
   const titleEl = document.createElement("h3");
   titleEl.textContent = `${data.recipes[0].name}`;
   articleEl.appendChild(titleEl);
 
-  //Lägger till bild
+  //BILD
   const imageEl = document.createElement("img");
   imageEl.src = data.recipes[0].image;
   imageEl.alt = data.recipes[0].name;
   articleEl.appendChild(imageEl);
+
+  //RECEPTINFO
+  const divEl = document.createElement("div");
+  divEl.className = "recipe-info";
+
+  const servingsPel = document.createElement("p");
+  const servingsTitle = document.createElement("strong");
+
+  servingsTitle.textContent = `Servings:`;
+  servingsPel.appendChild(servingsTitle);
+
+  servingsPel.append(` ${data.recipes[0].servings}`);
+  console.log(servingsTitle);
+
+  divEl.appendChild(servingsPel);
+  articleEl.appendChild(divEl);
 }
 
 searchForm.addEventListener("submit", function (event) {
