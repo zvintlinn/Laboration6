@@ -131,13 +131,32 @@ function displayRecipe(data) {
   articleEl.appendChild(ingH4El);
 
   const ingListEl = document.createElement("ul");
+
   //loop för att lista alla ingredienser
   data.recipes[0].ingredients.forEach((element) => {
     const liEl = document.createElement("li");
     liEl.textContent = element;
     ingListEl.appendChild(liEl);
   });
+
   articleEl.appendChild(ingListEl);
+
+  //INSTRUKTIONER
+  const instH4El = document.createElement("h4");
+
+  instH4El.textContent = "Instructions";
+  articleEl.appendChild(instH4El);
+
+  const instListEl = document.createElement("ol");
+
+  //loop för instruktioner
+  data.recipes[0].instructions.forEach((element) => {
+    const liEl = document.createElement("li");
+    liEl.textContent = element;
+    instListEl.appendChild(liEl);
+  });
+
+  articleEl.appendChild(instListEl);
 }
 
 searchForm.addEventListener("submit", function (event) {
