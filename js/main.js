@@ -84,17 +84,60 @@ function displayRecipe(data) {
   const divEl = document.createElement("div");
   divEl.className = "recipe-info";
 
+  //variabler för strong och p
   const servingsPel = document.createElement("p");
   const servingsTitle = document.createElement("strong");
+  const prepPel = document.createElement("p");
+  const prepTitle = document.createElement("strong");
+  const cookingPel = document.createElement("p");
+  const cookingTitle = document.createElement("strong");
+  const difficultPel = document.createElement("p");
+  const difficultTitle = document.createElement("strong");
 
+  //servings
   servingsTitle.textContent = `Servings:`;
   servingsPel.appendChild(servingsTitle);
 
   servingsPel.append(` ${data.recipes[0].servings}`);
-  console.log(servingsTitle);
+
+  //Prep time
+  prepTitle.textContent = `Prep time:`;
+  prepPel.appendChild(prepTitle);
+
+  prepPel.append(` ${data.recipes[0].prepTimeMinutes}`);
+
+  //Cooking time
+  cookingTitle.textContent = `Cooking time:`;
+  cookingPel.appendChild(cookingTitle);
+
+  cookingPel.append(` ${data.recipes[0].cookTimeMinutes}`);
+
+  //Difficulty
+  difficultTitle.textContent = `Difficulty:`;
+  difficultPel.appendChild(difficultTitle);
+
+  difficultPel.append(` ${data.recipes[0].difficulty}`);
 
   divEl.appendChild(servingsPel);
+  divEl.appendChild(prepPel);
+  divEl.appendChild(cookingPel);
+  divEl.appendChild(difficultPel);
   articleEl.appendChild(divEl);
+
+  //INGREDIENSER
+  const ingH4El = document.createElement("h4");
+
+  ingH4El.textContent = "Ingredients";
+  articleEl.appendChild(ingH4El);
+
+  const ingListEl = document.createElement("ul");
+  //loop för att lista alla ingredienser
+  data.recipes[0].ingredients.forEach((element) => {
+    const liEl = document.createElement("li");
+    liEl.textContent = element;
+    ingListEl.appendChild(liEl);
+  });
+  articleEl.appendChild(ingListEl);
 }
 
 searchForm.addEventListener("submit", function (event) {
