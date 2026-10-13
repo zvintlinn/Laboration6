@@ -113,13 +113,13 @@ function displayRecipe(data) {
   prepTitle.textContent = `Prep time:`;
   prepPel.appendChild(prepTitle);
 
-  prepPel.append(` ${data.recipes[0].prepTimeMinutes}`);
+  prepPel.append(` ${data.recipes[0].prepTimeMinutes} minutes`);
 
   //Cooking time
   cookingTitle.textContent = `Cooking time:`;
   cookingPel.appendChild(cookingTitle);
 
-  cookingPel.append(` ${data.recipes[0].cookTimeMinutes}`);
+  cookingPel.append(` ${data.recipes[0].cookTimeMinutes} minutes`);
 
   //Difficulty
   difficultTitle.textContent = `Difficulty:`;
